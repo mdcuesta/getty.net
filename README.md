@@ -246,3 +246,61 @@ GetImageDownloadAuthorizationsResult result =
 
 Console.WriteLine(result.Images[0].Authorizations[0].DownloadToken);
 ```
+
+###Create Download Request
+```C#
+var apiClient = new Client(authInfo);
+
+var searchRequest = new SearchForImages2RequestBody();
+searchRequest.Query = new Query { SearchPhrase = "sand" };
+searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
+searchRequest.Filter = new Filter
+{
+  ImageFamilies = new List<string> { "Creative", "Editorial" },
+  LicensingModels = new List<string> { "rightsmanaged", "royaltyfree" }
+};
+
+SearchForImagesResult searchResult = apiClient.Search(searchRequest);
+
+var imageIds = new List<string> { searchResult.Images[0].ImageId };
+
+var imageDetailRequestBody = new GetImageDetailsRequestBody
+{
+  ImageIds = imageIds
+};
+
+GetImageDetailsResult imageDetailResult = apiClient.GetDetails(imageDetailRequestBody);
+
+Image image = imageDetailResult.Images[0];
+SizesDownloadableImage imageSize = image.SizesDownloadableImages[0];
+
+
+var downloadAuthorizationRequestBody = new GetImageDownloadAuthorizationsRequestBody
+{
+  ImageSizes = new List<ImageSize> 
+  { 
+    new ImageSize 
+    { 
+      ImageId = image.ImageId, 
+      SizeKey = imageSize.SizeKey 
+    }                
+  }
+};
+
+GetImageDownloadAuthorizationsResult authorizationResult =
+  apiClient.GetImageDownloadAuthorizations(downloadAuthorizationRequestBody);
+
+string downloadToken = authorizationResult.Images[0].Authorizations[0].DownloadToken;
+
+var createDownloadRequestBody = new CreateDownloadRequestBody
+{
+  DownloadItems = new List<DownloadItem> 
+  {
+    new DownloadItem { DownloadToken = downloadToken }
+  }
+};
+
+CreateDownloadRequestResult result = apiClient.RequestDownload(createDownloadRequestBody);
+
+Console.WriteLine(result.DownloadUrls[0].UrlAttachment);
+```
