@@ -41,6 +41,8 @@ apiClient.CreateSession();
 after creating a session you can get the authorization token, the authorization token can be use later.  The authorization token expires every 30 mins, but it can be renewed.
 ```C#
 var authToken = apiClient.AuthToken;
+
+var newApiClient = new Client(authInfo, authToken);
 ```
 
 ####Renewing Authorization Token
