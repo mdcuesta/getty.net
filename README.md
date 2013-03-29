@@ -1,4 +1,4 @@
-Getty.api.NET
+Getty.Images.API for .NET
 =========
 
 .NET library for the Getty Images Search/Download API
