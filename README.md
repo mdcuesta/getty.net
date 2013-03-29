@@ -156,6 +156,6 @@ Image image = imageDetailResult.Images[0];
 foreach (var size in image.SizesDownloadableImages)
 {
   Console.WriteLine(string.Format("Resolution/DPI: {0}", size.ResolutionDpi));
-  Console.WriteLine(string.Format("Size Key: {0}"), size.SizeKey);
+  Console.WriteLine(string.Format("Size Key: {0}", size.SizeKey));
 }
 ```
