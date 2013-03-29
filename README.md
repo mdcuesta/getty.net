@@ -89,6 +89,7 @@ SearchForImagesResult result = apiClient.Search(searchRequest);
 
 foreach (var image in result.Images)
 {
+  Console.WriteLine(image.Title);
   Console.WriteLine(image.ImageId);
   Console.WriteLine(image.UrlThumb);
   Console.WriteLine(image.UrlPreview);  
@@ -126,4 +127,35 @@ SearchForImagesResult result = apiClient.Search(searchRequest);
 
 Console.WriteLine(string.Format("Result Item Total Count: {0}", result.ItemTotalCount));
 Console.WriteLine(string.Format("Result Start Number: {0}", result.ItemStartNumber));
+```
+
+####Get Image Details
+```C#
+var apiClient = new Client(authInfo, authToken);
+
+var searchRequest = new SearchForImages2RequestBody();
+searchRequest.Query = new Query { SearchPhrase = "sand" };
+searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
+searchRequest.Filter = new Filter
+{
+  ImageFamilies = new List<string> { "Creative", "Editorial" },
+  LicensingModels = new List<string> { "rightsmanaged", "royaltyfree" }
+};
+SearchForImagesResult searchResult = apiClient.Search(searchRequest);
+
+var imageIds = new List<string> { searchResult.Images[0].ImageId };
+
+var imageDetailRequestBody = new GetImageDetailsRequestBody
+{
+  ImageIds = imageIds
+};
+
+GetImageDetailsResult imageDetailResult = apiClient.GetDetails(imageDetailRequestBody);
+
+Image image = imageDetailResult.Images[0];
+foreach (var size in image.SizesDownloadableImages)
+{
+  Console.WriteLine(string.Format("Resolution/DPI: {0}", size.ResolutionDpi));
+  Console.WriteLine(string.Format("Size Key: {0}"), size.SizeKey);
+}
 ```
