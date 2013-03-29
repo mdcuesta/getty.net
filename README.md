@@ -161,3 +161,88 @@ foreach (var size in image.SizesDownloadableImages)
   Console.WriteLine(string.Format("Size Key: {0}", size.SizeKey));
 }
 ```
+
+####Get Image Download Authorizations
+
+```C#
+var apiClient = new Client(authInfo);
+
+var searchRequest = new SearchForImages2RequestBody();
+searchRequest.Query = new Query { SearchPhrase = "sand" };
+searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
+searchRequest.Filter = new Filter
+{
+  ImageFamilies = new List<string> { "Creative", "Editorial" },
+  LicensingModels = new List<string> { "rightsmanaged", "royaltyfree" }
+};
+
+SearchForImagesResult searchResult = apiClient.Search(searchRequest);
+
+var imageIds = new List<string> { searchResult.Images[0].ImageId };
+
+var imageDetailRequestBody = new GetImageDetailsRequestBody
+{
+  ImageIds = imageIds
+};
+
+GetImageDetailsResult imageDetailResult = apiClient.GetDetails(imageDetailRequestBody);
+
+Image image = imageDetailResult.Images[0];
+SizesDownloadableImage imageSize = image.SizesDownloadableImages[0];              
+
+
+var downloadAuthorizationRequestBody = new GetImageDownloadAuthorizationsRequestBody
+{
+  ImageSizes = new List<ImageSize> 
+  { 
+    new ImageSize 
+    { 
+      ImageId = image.ImageId, 
+      SizeKey = imageSize.SizeKey 
+    }                
+  }    
+};
+
+GetImageDownloadAuthorizationsResult result = 
+  apiClient.GetImageDownloadAuthorizations(downloadAuthorizationRequestBody);
+
+Console.WriteLine(result.Images[0].Authorizations[0].DownloadToken);
+```
+
+####Get Largest Image Download Authorizations
+
+```C#
+var apiClient = new Client(authInfo);
+
+var searchRequest = new SearchForImages2RequestBody();
+searchRequest.Query = new Query { SearchPhrase = "sand" };
+searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
+searchRequest.Filter = new Filter
+{
+  ImageFamilies = new List<string> { "Creative", "Editorial" },
+  LicensingModels = new List<string> { "rightsmanaged", "royaltyfree" }
+};
+
+SearchForImagesResult searchResult = apiClient.Search(searchRequest);
+
+var imageIds = new List<string> { searchResult.Images[0].ImageId };
+
+var imageDetailRequestBody = new GetImageDetailsRequestBody
+{
+  ImageIds = imageIds
+};
+
+GetImageDetailsResult imageDetailResult = apiClient.GetDetails(imageDetailRequestBody);
+
+Image image = imageDetailResult.Images[0];     
+
+var downloadAuthorizationRequestBody = new GetLargestImageDownloadAuthorizationsRequestBody
+{
+  Images = new List<Image> { image }
+};
+
+GetImageDownloadAuthorizationsResult result =
+  apiClient.GetLargestImageDownloadAuthorizations(downloadAuthorizationRequestBody);
+
+Console.WriteLine(result.Images[0].Authorizations[0].DownloadToken);
+```
