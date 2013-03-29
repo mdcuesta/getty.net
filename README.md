@@ -65,11 +65,65 @@ apiClient.RenewSession();
 
 ####Searching Images
 ```C#
-var apiClient = new Client(authInfo, authToken);
+var apiClient = new Client(authInfo);
 
 var searchRequest = new SearchForImages2RequestBody();
-searchRequest.Query = new Query{ SearchPhrase ="sand" };
-searchRequest.ResultOptions = new ResultOptions { ItemCount = 50, ItemStartNumber = 1};
+searchRequest.Query = new Query 
+{ 
+  SearchPhrase ="sand" 
+};
+
+searchRequest.ResultOptions = new ResultOptions 
+{ 
+  ItemCount = 50, 
+  ItemStartNumber = 1
+};
+
+searchRequest.Filter = new Filter
+{
+  ImageFamilies = new List<string> { "Creative", "Editorial" },
+  LicensingModels = new List<string> { "rightsmanaged", "royaltyfree" }
+};
 
 SearchForImagesResult result = apiClient.Search(searchRequest);
+
+foreach (var image in result.Images)
+{
+  Console.WriteLine(image.ImageId);
+  Console.WriteLine(image.UrlThumb);
+  Console.WriteLine(image.UrlPreview);  
+}
+```
+
+####Searching Images with Paging
+```C#
+int pageSize = 50;
+int page = 2;
+
+int startNumber = pageSize * (page - 1) + 1;
+
+var apiClient = new Client(authInfo);
+
+var searchRequest = new SearchForImages2RequestBody();
+searchRequest.Query = new Query 
+{ 
+  SearchPhrase = "sun" 
+};
+            
+searchRequest.ResultOptions = new ResultOptions 
+{ 
+  ItemCount = pageSize, 
+  ItemStartNumber = startNumber 
+};
+
+searchRequest.Filter = new Filter
+{
+  ImageFamilies = new List<string> { "Creative", "Editorial" },
+  LicensingModels = new List<string> { "rightsmanaged", "royaltyfree" }
+};
+
+SearchForImagesResult result = apiClient.Search(searchRequest);
+
+Console.WriteLine(string.Format("Result Item Total Count: {0}", result.ItemTotalCount));
+Console.WriteLine(string.Format("Result Start Number: {0}", result.ItemStartNumber));
 ```
