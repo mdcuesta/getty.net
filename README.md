@@ -23,10 +23,10 @@ Install-Package Getty.Images.API
 // authorization info
 var authInfo = new AuthInfo
 {
-  SystemId = "",
-  SystemPassword = "",
-  UserName = "",
-  Password = "",
+  SystemId = "your_system_id",
+  SystemPassword = "your_system_password",
+  UserName = "some_username",
+  Password = "some_password",
   ConnectionMode = ConnectionMode.Production
 };
 
