@@ -7,6 +7,14 @@ Author: Michael Dela Cuesta
 
 Email: michael.dcuesta@gmail.com
 
+Nuget Url: https://nuget.org/packages/Getty.Images.API/
+
+####Install via Nuget
+
+```C#
+Install-Package Getty.Images.API
+```
+
 ####Starting a Session
 
 ```C#
