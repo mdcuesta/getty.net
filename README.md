@@ -9,6 +9,8 @@ Email: michael.dcuesta@gmail.com
 
 Nuget Url: https://nuget.org/packages/Getty.Images.API/
 
+Getty API Console Documentation: https://api.gettyimages.com/page/api-console
+
 ####Install via Nuget
 
 ```C#
