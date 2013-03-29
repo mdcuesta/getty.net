@@ -69,7 +69,7 @@ var apiClient = new Client(authInfo, authToken);
 
 var searchRequest = new SearchForImages2RequestBody();
 searchRequest.Query = new Query{ SearchPhrase ="sand" };
-searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1};
+searchRequest.ResultOptions = new ResultOptions { ItemCount = 50, ItemStartNumber = 1};
 
 SearchForImagesResult result = apiClient.Search(searchRequest);
 ```
