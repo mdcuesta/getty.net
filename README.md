@@ -131,7 +131,7 @@ Console.WriteLine(string.Format("Result Start Number: {0}", result.ItemStartNumb
 
 ####Get Image Details
 ```C#
-var apiClient = new Client(authInfo, authToken);
+var apiClient = new Client(authInfo);
 
 var searchRequest = new SearchForImages2RequestBody();
 searchRequest.Query = new Query { SearchPhrase = "sand" };
