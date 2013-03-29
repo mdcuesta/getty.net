@@ -4,6 +4,7 @@ Getty.api.NET
 .NET library for the Getty Images Search/Download API
 
 Author: Michael Dela Cuesta
+
 Email: michael.dcuesta@gmail.com
 
 ####Starting a Session
