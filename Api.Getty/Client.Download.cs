@@ -53,8 +53,8 @@ namespace Api.Getty
             };
 
             request.AddBody(getLargestImageDownloadAuthorizationsRequest);
-            GetImageDownloadAuthorizationsResponse response = ExecutePost<GetImageDownloadAuthorizationsResponse>(request);
-            return (response == null) ? null : response.GetImageDownloadAuthorizationsResult;
+            GetLargestImageDownloadAuthorizationsResponse response = ExecutePost<GetLargestImageDownloadAuthorizationsResponse>(request);
+            return (response == null) ? null : response.GetLargestImageDownloadAuthorizationsResult;
         }
         #endregion
 

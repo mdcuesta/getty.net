@@ -88,6 +88,7 @@
     <Compile Include="Responses\GetImageDetailsResult.cs" />
     <Compile Include="Responses\GetImageDownloadAuthorizationsResponse.cs" />
     <Compile Include="Responses\GetImageDownloadAuthorizationsResult.cs" />
+    <Compile Include="Responses\GetLargestImageDownloadAuthorizationsResponse.cs" />
     <Compile Include="Responses\IGettyResponse.cs" />
     <Compile Include="Responses\SearchForImagesResponse.cs" />
     <Compile Include="Responses\SearchForImagesResult.cs" />
