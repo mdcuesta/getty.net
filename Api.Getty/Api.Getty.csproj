@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{479E9DAC-F211-4186-980D-A0306C966333}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Api.Getty</RootNamespace>
+    <AssemblyName>Api.Getty</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client.Download.cs" />
+    <Compile Include="Client.Search.cs" />
+    <Compile Include="Client.Session.cs" />
+    <Compile Include="AuthInfo.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="ConnectionMode.cs" />
+    <Compile Include="AuthToken.cs" />
+    <Compile Include="Exceptions\InvalidRequestException.cs" />
+    <Compile Include="Exceptions\ResponseErrorException.cs" />
+    <Compile Include="Exceptions\SecurityTokenExpiredException.cs" />
+    <Compile Include="Models\DownloadItem.cs" />
+    <Compile Include="Models\DownloadUrl.cs" />
+    <Compile Include="Models\Authorization.cs" />
+    <Compile Include="Models\ImageDownloadAuthorizations.cs" />
+    <Compile Include="Models\ImageSize.cs" />
+    <Compile Include="Requests\CreateDownloadRequest.cs" />
+    <Compile Include="Requests\CreateDownloadRequestBody.cs" />
+    <Compile Include="Requests\GetImageDetailsRequest.cs" />
+    <Compile Include="Requests\GetImageDetailsRequestBody.cs" />
+    <Compile Include="Models\Filter.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Query.cs" />
+    <Compile Include="Models\ResultOptions.cs" />
+    <Compile Include="Requests\GetImageDownloadAuthorizationsRequest.cs" />
+    <Compile Include="Requests\GetImageDownloadAuthorizationsRequestBody.cs" />
+    <Compile Include="Requests\GetLargestImageDownloadAuthorizationsRequest.cs" />
+    <Compile Include="Requests\GetLargestImageDownloadAuthorizationsRequestBody.cs" />
+    <Compile Include="Requests\SearchForImagesRequest.cs" />
+    <Compile Include="Responses\CreateDownloadRequestResult.cs" />
+    <Compile Include="Responses\CreateDownloadResponse.cs" />
+    <Compile Include="Responses\GetImageDetailsResponse.cs" />
+    <Compile Include="Responses\GetImageDetailsResult.cs" />
+    <Compile Include="Responses\GetImageDownloadAuthorizationsResponse.cs" />
+    <Compile Include="Responses\GetImageDownloadAuthorizationsResult.cs" />
+    <Compile Include="Responses\IGettyResponse.cs" />
+    <Compile Include="Responses\SearchForImagesResponse.cs" />
+    <Compile Include="Responses\SearchForImagesResult.cs" />
+    <Compile Include="Requests\SearchForImages2RequestBody.cs" />
+    <Compile Include="Models\SizesDownloadableImage.cs" />
+    <Compile Include="Requests\CreateSessionRequest.cs" />
+    <Compile Include="Requests\CreateSessionRequestBody.cs" />
+    <Compile Include="Requests\RequestHeader.cs" />
+    <Compile Include="Responses\ResponseHeader.cs" />
+    <Compile Include="Responses\CreateSessionResponse.cs" />
+    <Compile Include="Responses\CreateSessionResult.cs" />
+    <Compile Include="Requests\RenewSessionRequest.cs" />
+    <Compile Include="Requests\RenewSessionRequestBody.cs" />
+    <Compile Include="Responses\RenewSessionResponse.cs" />
+    <Compile Include="Responses\RenewSessionResult.cs" />
+    <Compile Include="Responses\StatusEntry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

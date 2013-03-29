@@ -1,0 +1,8 @@
+*.user
+*.suo
+_ReSharper.*
+*.dotCover
+packages/
+TestResults/
+bin/
+obj/
