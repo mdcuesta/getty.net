@@ -339,14 +339,10 @@ namespace Test.Api.Getty
         {
             return new AuthInfo
             {
-                //SystemId = "your_system_id",
-                //SystemPassword = "your_system_password",
-                //UserName = "some_username",
-                //Password = "some_password",
-                SystemId = "10341",
-                SystemPassword = "RPpo948ICcNEq1COnjVQTnW7eAbBysV9ahylTL7ubPk=",
-                UserName = "progressiveimpressionsintl_api",
-                Password = "nx4wpizJ4MzT2bW",
+                SystemId = "your_system_id",
+                SystemPassword = "your_system_password",
+                UserName = "some_username",
+                Password = "some_password",
                 ConnectionMode = ConnectionMode.Production
             };
         }
