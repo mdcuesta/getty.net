@@ -13,9 +13,9 @@ namespace Api.Getty
     {  
         #region Search
         /// <summary>
-        /// Search For Images
+        /// Search for Images
         /// </summary>
-        /// <param name="imageSearchRequest">Search For Images Request</param>
+        /// <param name="imageSearchRequest">Search for Images Request</param>
         /// <returns>SearchForImagesResult</returns>
         public SearchForImagesResult Search(SearchForImages2RequestBody imageSearchRequest)
         {
@@ -31,6 +31,29 @@ namespace Api.Getty
             request.AddBody(searchRequest);
             SearchForImagesResponse response = ExecutePost<SearchForImagesResponse>(request);
             return (response == null) ? null : response.SearchForImagesResult;
+        }
+        #endregion
+
+        #region SearchForVideos
+        /// <summary>
+        /// Search for Videos
+        /// </summary>
+        /// <param name="videoSearchRequest">Search for Videos Request</param>
+        /// <returns>SearchForVideosResult</returns>
+        public SearchForVideosResult SearchForVideos(SearchForVideosRequestBody videoSearchRequest)
+        {
+            RestRequest request = CreateRequest();               
+            request.Resource = "search/SearchForVideos";
+
+            var searchRequest = new SearchForVideosRequest
+            {
+                RequestHeader = GetHeader(),
+                SearchForVideosRequestBody = videoSearchRequest
+            };
+
+            request.AddBody(searchRequest);
+            SearchForVideosResponse response = ExecutePost<SearchForVideosResponse>(request);
+            return (response == null) ? null : response.SearchForVideosResult;
         }
         #endregion
 

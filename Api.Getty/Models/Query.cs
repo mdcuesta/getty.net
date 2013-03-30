@@ -16,6 +16,8 @@ namespace Api.Getty.Models
 
         public List<string> KeywordIds { get; set; }
 
+        public List<string> AssetIds { get; set; }
+
         public List<string> SpecificPersons { get; set; }
     }
 

@@ -69,6 +69,9 @@
     <Compile Include="Models\Authorization.cs" />
     <Compile Include="Models\ImageDownloadAuthorizations.cs" />
     <Compile Include="Models\ImageSize.cs" />
+    <Compile Include="Models\SizesDownloadableVideo.cs" />
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="Models\VideoSearchFilter.cs" />
     <Compile Include="Requests\CreateDownloadRequest.cs" />
     <Compile Include="Requests\CreateDownloadRequestBody.cs" />
     <Compile Include="Requests\GetImageDetailsRequest.cs" />
@@ -82,6 +85,8 @@
     <Compile Include="Requests\GetLargestImageDownloadAuthorizationsRequest.cs" />
     <Compile Include="Requests\GetLargestImageDownloadAuthorizationsRequestBody.cs" />
     <Compile Include="Requests\SearchForImagesRequest.cs" />
+    <Compile Include="Requests\SearchForVideosRequest.cs" />
+    <Compile Include="Requests\SearchForVideosRequestBody.cs" />
     <Compile Include="Responses\CreateDownloadRequestResult.cs" />
     <Compile Include="Responses\CreateDownloadResponse.cs" />
     <Compile Include="Responses\GetImageDetailsResponse.cs" />
@@ -104,6 +109,8 @@
     <Compile Include="Requests\RenewSessionRequestBody.cs" />
     <Compile Include="Responses\RenewSessionResponse.cs" />
     <Compile Include="Responses\RenewSessionResult.cs" />
+    <Compile Include="Responses\SearchForVideosResponse.cs" />
+    <Compile Include="Responses\SearchForVideosResult.cs" />
     <Compile Include="Responses\StatusEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

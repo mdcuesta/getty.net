@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Api.Getty.Models;
 
-namespace Api.Getty.Models
+namespace Api.Getty.Responses
 {
-    public class ResultOptions
+    public class SearchForVideosResult
     {
-        public bool IncludeKeywords { get; set; }
+        public List<Video> Videos { get; set; }
 
         public int ItemCount { get; set; }
 
         public int ItemStartNumber { get; set; }
 
         public int ItemTotalCount { get; set; }
-
-        public string RefinementOptionsSet { get; set; }
-
-        public string SortOrder { get; set; }
     }
 }

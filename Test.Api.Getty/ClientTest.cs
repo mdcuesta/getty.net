@@ -101,6 +101,30 @@ namespace Test.Api.Getty
         }
 
         [TestMethod]
+        public void TestSearchVideo()
+        {
+            AuthInfo authInfo = GetAuthInfo();
+            AuthToken authToken = GetAuthToken();
+
+            var apiClient = new Client(authInfo, authToken);
+
+            var searchRequest = new SearchForVideosRequestBody();
+            searchRequest.Query = new Query { SearchPhrase = "Man jumps onto rock" };
+            searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
+            searchRequest.Filter = new VideoSearchFilter 
+            { 
+                AssetFamilies = new List<string> 
+                { 
+                    "Creative",
+                    "Editorial"
+                }
+            };
+
+            SearchForVideosResult result = apiClient.SearchForVideos(searchRequest);
+            Assert.IsTrue(result.Videos.Count == 1); 
+        }
+
+        [TestMethod]
         public void TestGetImageDetails()
         {
             AuthInfo authInfo = GetAuthInfo();
@@ -315,10 +339,14 @@ namespace Test.Api.Getty
         {
             return new AuthInfo
             {
-                SystemId = "your_system_id",
-                SystemPassword = "your_system_password",
-                UserName = "some_username",
-                Password = "some_password",
+                //SystemId = "your_system_id",
+                //SystemPassword = "your_system_password",
+                //UserName = "some_username",
+                //Password = "some_password",
+                SystemId = "10341",
+                SystemPassword = "RPpo948ICcNEq1COnjVQTnW7eAbBysV9ahylTL7ubPk=",
+                UserName = "progressiveimpressionsintl_api",
+                Password = "nx4wpizJ4MzT2bW",
                 ConnectionMode = ConnectionMode.Production
             };
         }
