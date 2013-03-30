@@ -306,3 +306,26 @@ CreateDownloadRequestResult result = apiClient.RequestDownload(createDownloadReq
 
 Console.WriteLine(result.DownloadUrls[0].UrlAttachment);
 ```
+
+####Search for Videos
+
+```C#
+var apiClient = new Client(authInfo);
+
+var searchRequest = new SearchForVideosRequestBody();
+searchRequest.Query = new Query { SearchPhrase = "Man jumps onto rock" };
+searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
+searchRequest.Filter = new VideoSearchFilter 
+{ 
+  AssetFamilies = new List<string> 
+  { 
+    "Creative",
+    "Editorial"
+  }
+};
+
+SearchForVideosResult result = apiClient.SearchForVideos(searchRequest);
+List<Video> videos = result.Videos;
+
+Video video = videos[0];
+```
