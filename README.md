@@ -1,7 +1,9 @@
 Getty.Images.API for .NET
 =========
 
-.NET library for the Getty Images Search/Download API
+.NET library for the Getty Images Search/Download API.
+
+Version: 1.0.0.2
 
 Author: Michael Dela Cuesta
 
@@ -10,6 +12,13 @@ Email: michael.dcuesta@gmail.com
 Nuget Url: https://nuget.org/packages/Getty.Images.API/
 
 Getty API Console Documentation: https://api.gettyimages.com/page/api-console
+
+####Note from author 
+
+I don't work for Getty Images.  I created this library for a project I'm working on for my employer. 
+
+If you have encountered issues please report to michael.dcuesta@gmail.com or submit an issue to https://github.com/mdcuesta/getty.net/issues.
+
 
 ####Install via Nuget
 
