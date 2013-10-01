@@ -95,8 +95,8 @@ namespace Test.Api.Getty
 
             SearchForImagesResult result = apiClient.Search(searchRequest);
 
-            Console.WriteLine(string.Format("Result Item Total Count: {0}", result.ItemTotalCount));
-            Console.WriteLine(string.Format("Result Start Number: {0}", result.ItemStartNumber));
+            Console.WriteLine("Result Item Total Count: {0}", result.ItemTotalCount);
+            Console.WriteLine("Result Start Number: {0}", result.ItemStartNumber);
             Assert.IsTrue(result.Images.Count == 50);   
         }
 
@@ -155,8 +155,8 @@ namespace Test.Api.Getty
             Image image = imageDetailResult.Images[0];
             foreach (var size in image.SizesDownloadableImages)
             {
-                Console.WriteLine(string.Format("Resolution/DPI: {0}", size.ResolutionDpi));
-                Console.WriteLine(string.Format("Size Key: {0}", size.SizeKey));
+                Console.WriteLine("Resolution/DPI: {0}", size.ResolutionDpi);
+                Console.WriteLine("Size Key: {0}", size.SizeKey);
             }  
 
             Assert.IsTrue(imageDetailResult.Images.Count == 1);   

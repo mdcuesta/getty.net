@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Api.Getty.Models;
-using Api.Getty.Requests;
+﻿using Api.Getty.Requests;
 using Api.Getty.Responses;
 using RestSharp;
 
@@ -30,7 +24,7 @@ namespace Api.Getty
             };
 
             request.AddBody(getDownloadAuthorizationsRequest);
-            GetImageDownloadAuthorizationsResponse response = ExecutePost<GetImageDownloadAuthorizationsResponse>(request);
+            var response = ExecutePost<GetImageDownloadAuthorizationsResponse>(request);
             return (response == null) ? null : response.GetImageDownloadAuthorizationsResult;
         }
         #endregion
@@ -53,7 +47,7 @@ namespace Api.Getty
             };
 
             request.AddBody(getLargestImageDownloadAuthorizationsRequest);
-            GetLargestImageDownloadAuthorizationsResponse response = ExecutePost<GetLargestImageDownloadAuthorizationsResponse>(request);
+            var response = ExecutePost<GetLargestImageDownloadAuthorizationsResponse>(request);
             return (response == null) ? null : response.GetLargestImageDownloadAuthorizationsResult;
         }
         #endregion
@@ -76,7 +70,7 @@ namespace Api.Getty
             };
 
             request.AddBody(createDownloadRequest);
-            CreateDownloadResponse response = ExecutePost<CreateDownloadResponse>(request);
+            var response = ExecutePost<CreateDownloadResponse>(request);
             return (response == null) ? null : response.CreateDownloadRequestResult;
         }
         #endregion

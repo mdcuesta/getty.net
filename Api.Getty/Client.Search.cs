@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Api.Getty.Responses;
+﻿using Api.Getty.Responses;
 using Api.Getty.Requests;
 using RestSharp;
 
@@ -29,7 +24,7 @@ namespace Api.Getty
             };
 
             request.AddBody(searchRequest);
-            SearchForImagesResponse response = ExecutePost<SearchForImagesResponse>(request);
+            var response = ExecutePost<SearchForImagesResponse>(request);
             return (response == null) ? null : response.SearchForImagesResult;
         }
         #endregion
@@ -52,7 +47,7 @@ namespace Api.Getty
             };
 
             request.AddBody(searchRequest);
-            SearchForVideosResponse response = ExecutePost<SearchForVideosResponse>(request);
+            var response = ExecutePost<SearchForVideosResponse>(request);
             return (response == null) ? null : response.SearchForVideosResult;
         }
         #endregion
@@ -75,7 +70,7 @@ namespace Api.Getty
             };
 
             request.AddBody(getImageDetailsRequest);
-            GetImageDetailsResponse response = ExecutePost<GetImageDetailsResponse>(request); 
+            var response = ExecutePost<GetImageDetailsResponse>(request); 
             return (response == null) ? null : response.GetImageDetailsResult;
         }
         #endregion

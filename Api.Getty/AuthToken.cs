@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Api.Getty
 {
@@ -64,7 +60,7 @@ namespace Api.Getty
             get 
             {
                 DateTime tokenLife = DateRenewed.AddMinutes(TokenDurationMinutes);
-                return tokenLife.CompareTo(DateTime.Now) >= 0;                 
+                return tokenLife < DateTime.Now;                  
             }
         }
     }

@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RestSharp;
 using System.Net;
 using Api.Getty.Requests;
-using RestSharp.Deserializers;
 using Api.Getty.Responses;
 using Api.Getty.Exceptions;
+using RestSharp;
 
 namespace Api.Getty
 {
@@ -56,11 +51,11 @@ namespace Api.Getty
             set 
             {
                 _authInfo.ConnectionMode = value;
-                if (_authInfo.ConnectionMode == Getty.ConnectionMode.Production)
+                if (_authInfo.ConnectionMode == ConnectionMode.Production)
                 {
                     _restClient.BaseUrl = PRODUCTION_BASE_URL;
                 }
-                else if (_authInfo.ConnectionMode == Getty.ConnectionMode.Stage)
+                else if (_authInfo.ConnectionMode == ConnectionMode.Stage)
                 {
                     _restClient.BaseUrl = STAGE_BASE_URL;
                 }
@@ -139,15 +134,16 @@ namespace Api.Getty
             request.Method = Method.POST;
             IRestResponse<T> response = RestClient.Execute<T>(request);
 
-            if (response.Data == null || 
+            if (Equals(response.Data, null) || 
                 response.StatusCode == HttpStatusCode.InternalServerError ||
                 response.StatusCode == HttpStatusCode.NotFound)
             {
                 throw new InvalidRequestException();
             }
-            if (typeof(IGettyResponse).IsAssignableFrom(response.Data.GetType()))
+
+            if (response.Data is IGettyResponse)
             {
-                CheckStatus((response.Data as IGettyResponse).ResponseHeader);
+                CheckStatus((response.Data as IGettyResponse).ResponseHeader); 
             }
             
             return response.Data;
@@ -197,16 +193,15 @@ namespace Api.Getty
         /// <param name="responseHeader">ResponseHeader</param>
         private void CheckStatus(ResponseHeader responseHeader)
         {
-            if (responseHeader.Status.ToLower() == "error")
-            {
-                if (responseHeader.StatusList.Count > 0)
-                {
-                    StatusEntry status = responseHeader.StatusList[0];
-                    if (status.Message == "The security token has expired.")
-                        throw new SecurityTokenExpiredException();
-                }
+            if (responseHeader.Status.ToLower() != "error")
+                return;
+
+            if (responseHeader.StatusList.Count < 1)
                 throw responseHeader.ToResponseErrorException();
-            }
+            
+            StatusEntry status = responseHeader.StatusList[0];
+            if (status.Message == "The security token has expired.")
+                throw new SecurityTokenExpiredException();
         }
         #endregion
 

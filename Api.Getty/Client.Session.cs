@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RestSharp;
 using Api.Getty.Requests;
 using Api.Getty.Responses;
-using System.Net;
 
 namespace Api.Getty
 {
@@ -36,7 +31,7 @@ namespace Api.Getty
             var dateRenewed = DateTime.Now;
 
             request.AddBody(renewSessionRequest);
-            RenewSessionResponse response = ExecutePost<RenewSessionResponse>(request);
+            var response = ExecutePost<RenewSessionResponse>(request);
 
             if (response.RenewSessionResult == null)
                 throw new Exception("");
@@ -80,7 +75,7 @@ namespace Api.Getty
             var dateRenewed = DateTime.Now; 
             request.AddBody(sessionRequest);
             
-            CreateSessionResponse response = ExecutePost<CreateSessionResponse>(request);
+            var response = ExecutePost<CreateSessionResponse>(request);
 
             AuthToken token = response.CreateSessionResult.ToAuthToken();
             token.DateRenewed = dateRenewed;
