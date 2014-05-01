@@ -2,7 +2,7 @@
 
 namespace Api.Getty.Requests
 {
-    public class SearchForImages2RequestBody
+    public class SearchForImagesRequestBody
     {
         public Filter Filter { get; set; }
 

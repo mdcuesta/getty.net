@@ -2,6 +2,8 @@
 {
     class CreateSessionResult
     {   
+        public string AccountId { get; set; }
+
         public string SecureToken { get; set; }
 
         public string Token { get; set; }

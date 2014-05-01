@@ -49,7 +49,7 @@ namespace Test.Api.Getty
 
             var apiClient = new Client(authInfo, authToken);
 
-            var searchRequest = new SearchForImages2RequestBody();
+            var searchRequest = new SearchForImagesRequestBody();
             searchRequest.Query = new Query{ SearchPhrase ="sand" };
             searchRequest.ResultOptions = new ResultOptions { ItemCount = 50, ItemStartNumber = 1};
             searchRequest.Filter = new Filter
@@ -75,7 +75,7 @@ namespace Test.Api.Getty
 
             var apiClient = new Client(authInfo, authToken);
 
-            var searchRequest = new SearchForImages2RequestBody();
+            var searchRequest = new SearchForImagesRequestBody();
             searchRequest.Query = new Query 
             { 
                 SearchPhrase = "sun" 
@@ -132,7 +132,7 @@ namespace Test.Api.Getty
 
             var apiClient = new Client(authInfo, authToken);
 
-            var searchRequest = new SearchForImages2RequestBody();
+            var searchRequest = new SearchForImagesRequestBody();
             searchRequest.Query = new Query { SearchPhrase = "sand" };
             searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
             searchRequest.Filter = new Filter
@@ -170,7 +170,7 @@ namespace Test.Api.Getty
 
             var apiClient = new Client(authInfo, authToken);
 
-            var searchRequest = new SearchForImages2RequestBody();
+            var searchRequest = new SearchForImagesRequestBody();
             searchRequest.Query = new Query { SearchPhrase = "sand" };
             searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
             searchRequest.Filter = new Filter
@@ -223,7 +223,7 @@ namespace Test.Api.Getty
 
             var apiClient = new Client(authInfo, authToken);
 
-            var searchRequest = new SearchForImages2RequestBody();
+            var searchRequest = new SearchForImagesRequestBody();
             searchRequest.Query = new Query { SearchPhrase = "sand" };
             searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
             searchRequest.Filter = new Filter
@@ -267,7 +267,7 @@ namespace Test.Api.Getty
 
             var apiClient = new Client(authInfo, authToken);
 
-            var searchRequest = new SearchForImages2RequestBody();
+            var searchRequest = new SearchForImagesRequestBody();
             searchRequest.Query = new Query { SearchPhrase = "sand" };
             searchRequest.ResultOptions = new ResultOptions { ItemCount = 1, ItemStartNumber = 1 };
             searchRequest.Filter = new Filter

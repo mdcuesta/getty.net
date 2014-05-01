@@ -49,20 +49,11 @@ namespace Api.Getty.Models
 
         public string Source { get; set; }
 
+        public string Title { get; set; }
+
         public Urls Urls { get; set; }
 
-    }
-
-    public class Keyword
-    {  
-        public string KeywordId { get; set; }
-
-        public int KeywordWeight { get; set; }
-
-        public string Text { get; set; }
-
-        public string Type { get; set; } 
-    }
+    }      
 
     public class Urls
     {

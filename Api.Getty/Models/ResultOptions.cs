@@ -8,9 +8,11 @@
 
         public int ItemStartNumber { get; set; }
 
-        public int ItemTotalCount { get; set; }
-
         public string RefinementOptionsSet { get; set; }
+
+        public string EditorialSortOrder { get; set; }
+
+        public string CreativeSortOrder { get; set; }
 
         public string SortOrder { get; set; }
     }

@@ -12,7 +12,7 @@ namespace Api.Getty
         /// </summary>
         /// <param name="imageSearchRequest">Search for Images Request</param>
         /// <returns>SearchForImagesResult</returns>
-        public SearchForImagesResult Search(SearchForImages2RequestBody imageSearchRequest)
+        public SearchForImagesResult Search(SearchForImagesRequestBody imageSearchRequest)
         {
             RestRequest request = CreateRequest();
             request.Resource = "search/SearchForImages";
@@ -20,7 +20,7 @@ namespace Api.Getty
             var searchRequest = new SearchForImagesRequest
             {
                 RequestHeader = GetHeader(),
-                SearchForImages2RequestBody = imageSearchRequest
+                SearchForImagesRequestBody = imageSearchRequest
             };
 
             request.AddBody(searchRequest);

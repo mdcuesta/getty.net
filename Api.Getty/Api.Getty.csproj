@@ -65,6 +65,9 @@
     <Compile Include="Models\Authorization.cs" />
     <Compile Include="Models\ImageDownloadAuthorizations.cs" />
     <Compile Include="Models\ImageSize.cs" />
+    <Compile Include="Models\Keyword.cs" />
+    <Compile Include="Models\ReferralDestination.cs" />
+    <Compile Include="Models\RefinementOption.cs" />
     <Compile Include="Models\SizesDownloadableVideo.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\VideoSearchFilter.cs" />
@@ -93,7 +96,7 @@
     <Compile Include="Responses\IGettyResponse.cs" />
     <Compile Include="Responses\SearchForImagesResponse.cs" />
     <Compile Include="Responses\SearchForImagesResult.cs" />
-    <Compile Include="Requests\SearchForImages2RequestBody.cs" />
+    <Compile Include="Requests\SearchForImagesRequestBody.cs" />
     <Compile Include="Models\SizesDownloadableImage.cs" />
     <Compile Include="Requests\CreateSessionRequest.cs" />
     <Compile Include="Requests\CreateSessionRequestBody.cs" />

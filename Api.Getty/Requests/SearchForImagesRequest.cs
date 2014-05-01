@@ -4,6 +4,6 @@
     {
         public RequestHeader RequestHeader { get; set; }
 
-        public SearchForImages2RequestBody SearchForImages2RequestBody { get; set; }
+        public SearchForImagesRequestBody SearchForImagesRequestBody { get; set; }
     }
 }

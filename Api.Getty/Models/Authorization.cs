@@ -11,5 +11,7 @@
         public string ProductOfferingType { get; set; }
 
         public string SizeKey { get; set; }
+
+        public int DownloadsRemaining { get; set; }
     }
 }

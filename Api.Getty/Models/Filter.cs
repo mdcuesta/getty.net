@@ -4,13 +4,17 @@ namespace Api.Getty.Models
 {
     public class Filter
     {
-        public Collections Collections { get; set; }
+        public Collection Collections { get; set; }
 
         public List<string> EditorialSegments { get; set; }
 
         public EditorialSources EditorialSources { get; set; }
 
         public List<string> FileTypes { get; set; }
+
+        public bool ExcludeNudity { get; set; }
+
+        public string EmbedContentOnly { get; set; }
 
         public List<string> GraphicStyles { get; set; }
 
@@ -22,10 +26,12 @@ namespace Api.Getty.Models
 
         public List<string> ProductOfferings { get; set; }
 
-        public List<Refinement> Refinements { get; set; }        
+        public List<Refinement> Refinements { get; set; } 
+  
+        public bool WhiteBackgroundOnly { get; set; }
     }
 
-    public class Collections
+    public class Collection
     {
         public List<string> Ids { get; set; }
 

@@ -5,5 +5,7 @@
         public string Token { get; set; }
 
         public string CoordinationId { get; set; }
+
+        public string Detail { get; set; }
     }
 }
