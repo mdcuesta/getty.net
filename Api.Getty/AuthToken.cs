@@ -59,7 +59,7 @@ namespace Api.Getty
         {
             get 
             {
-                DateTime tokenLife = DateRenewed.AddMinutes(TokenDurationMinutes);
+                DateTime tokenLife = DateRenewed.AddMinutes(TokenDurationMinutes - 1);
                 return tokenLife < DateTime.Now;                  
             }
         }
