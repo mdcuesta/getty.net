@@ -3,7 +3,7 @@ Getty.Images.API for .NET
 
 .NET library for the Getty Images Search/Download API.
 
-Version: 1.0.0.2
+Version: 1.0.0.4
 
 Author: Michael Dela Cuesta
 
