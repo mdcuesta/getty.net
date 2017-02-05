@@ -1,6 +1,9 @@
 Getty.Images.API for .NET
 =========
 
+Note: No longer maintained.  Getty Images has created an official client for their API starting 2015. See https://www.nuget.org/packages/GettyImages.Api/
+
+
 .NET library for the Getty Images Search/Download API.
 
 Version: 1.0.0.4
